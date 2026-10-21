@@ -1,10 +1,10 @@
-# Nyxheim 0.7.1 — Minecraft 26.3 (Fabric)
+# Nyxheim 0.8.1 — Minecraft 26.3 (Fabric)
 
 Una dimensión enorme y violeta con islas flotantes, 5 biomas propios, 2 jefes con fases,
 armas con poderes, armaduras con bonus de set, mascotas y monturas.
 
 ## Instalar
-Copiá `build/libs/nyxheim-0.7.1.jar` a la carpeta `mods` (Windows: `%appdata%\.minecraft\mods`,
+Copiá `build/libs/nyxheim-0.8.1.jar` a la carpeta `mods` (Windows: `%appdata%\.minecraft\mods`,
 Linux: `~/.minecraft/mods`) junto con Fabric API, y borrá la versión anterior. El mismo .jar sirve en Windows y Linux.
 
 ## Llegar a Nyxheim
@@ -19,6 +19,7 @@ Linux: `~/.minecraft/mods`) junto con Fabric API, y borrá la versión anterior.
 5. **Jefes**: 4 Fragmentos al Anciano → Sigilo → Altar de una Ciudadela → **Coloso** → Ojo del Coloso → el Anciano lo convierte en Corona → Altar de una Torre → **Soberana**.
 6. **Equipo de final**: voidita, armadura Abisal (plantilla + bloque de voidita sobre netherita) y la Mesa de encantamientos de Nyx.
 7. **Asedio del Eclipse**: Puesto del Eclipse (mares del vacío, altura 92) → Heraldo → Amuleto → usalo en una aldea → 5 oleadas → **Tótem del Eclipse**.
+8. **Jefe final**: Núcleo Titánico (Coloso) + Corazón del Eclipse (Soberana) → **Estrella del Ocaso** en la Mesa de Nyx → Castillo Celeste (mega isla flotante, altura 262; subí con la Plataforma de Ascenso bajo su muelle) → Altar del Ocaso → **Nyxara, la Devoradora de Estrellas**. Destruí los 4 Prismas Estelares de las torres para que no se cure.
 
 ## Contenido
 | | |
@@ -41,12 +42,14 @@ Linux: `~/.minecraft/mods`) junto con Fabric API, y borrá la versión anterior.
 | **Cultivo** | La azada ara el Musgo Estelar y el Limo Umbrío: tierra arada de Nyx. Semillas estelares (en cofres de estructuras) → Fruto Estelar |
 | **Encantamientos** | Mesa de encantamientos de Nyx (lunarita): encanta por encima del máximo. Propios: Filo del Eclipse, Sanguijuela Lunar, Paso del Vacío y Alcance Estelar |
 | **Puesto y Asedio del Eclipse** | Puestos de Cultistas sobre pilotes en los mares del vacío (altura 92). El Heraldo suelta el Amuleto del Eclipse: usado en una aldea desata un asedio de 5 oleadas que caen del cielo (cultistas, Invocadores del Vacío y criaturas de Nyx). Recompensa: Tótem del Eclipse (salva de la muerte y da Resistencia I, Velocidad II y 8 corazones extra) |
+| **Biomas nuevos** | Jardín de Cristal, Dunas Estelares, Bosque Fúngico e Islas Celestes |
+| **Jefe final** | Nyxara, la Devoradora de Estrellas: 3 fases, picadas, aliento estelar, meteoritos, ondas de choque, rayos lunares, agujero negro y secuaces. Suelta el Filo Devorador de Estrellas y la Corona Estelar |
 | **Mascotas** | Lince Lunar (se doma con lunarita) y Raya del Vacío (montura voladora) |
 
 Recetas en `src/main/resources/data/nyxheim/recipe`.
 
 ## Desarrollo
 - `python3 gen_assets.py` regenera texturas, modelos, idiomas, recetas, tags, biomas y la dimensión (necesita Pillow y haber compilado una vez).
-- `./gradlew build` → `build/libs/nyxheim-0.7.1.jar`. `./gradlew runClient` / `runServer` para probar.
+- `./gradlew build` → `build/libs/nyxheim-0.8.1.jar`. `./gradlew runClient` / `runServer` para probar.
 - En desarrollo existen `/nyxuse`, `/nyxfind` (estructuras cercanas) y `/nyxprobe` (bloques de la zona); ninguno existe fuera del entorno de desarrollo.
 - Las texturas de los mobs se generan al iniciar el juego recoloreando las de vanilla: el mod no incluye archivos de Mojang.

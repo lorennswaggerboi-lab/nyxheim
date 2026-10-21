@@ -1,14 +1,24 @@
-# Nyxheim 0.7.0 — Minecraft 26.3 (Fabric)
+# Nyxheim 0.7.1 — Minecraft 26.3 (Fabric)
 
 Una dimensión enorme y violeta con islas flotantes, 5 biomas propios, 2 jefes con fases,
 armas con poderes, armaduras con bonus de set, mascotas y monturas.
 
 ## Instalar
-Copiá `build/libs/nyxheim-0.7.0.jar` a la carpeta `mods` (Windows: `%appdata%\.minecraft\mods`,
+Copiá `build/libs/nyxheim-0.7.1.jar` a la carpeta `mods` (Windows: `%appdata%\.minecraft\mods`,
 Linux: `~/.minecraft/mods`) junto con Fabric API, y borrá la versión anterior. El mismo .jar sirve en Windows y Linux.
 
 ## Llegar a Nyxheim
 - **Marco** 6×7 vertical: 4 **Núcleos de Nyx** en las esquinas + 18 **Obsidiana Rúnica**. Encendelo con el **Ojo de Nyx** y quedate ~4 s adentro.
+- **Obsidiana Rúnica** (×4): 4 amatista + 4 obsidiana + perla de Ender. **Núcleo de Nyx**: 4 oro + 4 obsidiana + diamante. **Ojo de Nyx**: ojo de Ender + amatista + polvo de piedra luminosa + lapislázuli.
+
+## Guía rápida: qué hacer en Nyxheim
+1. **Cruzá el portal** (ver arriba).
+2. **Primeros recursos**: madera y piedra de Nyx; menas de **lunarita** (celeste) y **astralita** (rosada, se funde en lingotes).
+3. **Mesa de Nyx** (en la mesa normal): lunarita · cristal luminoso · lunarita / astralita · mesa de crafteo · astralita / brote de Nyx · tablones de Nyx · brote de Nyx. Ahí se hace todo el equipo de Nyxheim, los hornos y las mesas de oficio.
+4. **Aldeas**: misiones del Jefe cazador y el Chamán → Fragmentos de Sello. Reproducí aldeanos con Fruto Estelar y dales oficio con mesas de Nyx; se comercia con lunarita.
+5. **Jefes**: 4 Fragmentos al Anciano → Sigilo → Altar de una Ciudadela → **Coloso** → Ojo del Coloso → el Anciano lo convierte en Corona → Altar de una Torre → **Soberana**.
+6. **Equipo de final**: voidita, armadura Abisal (plantilla + bloque de voidita sobre netherita) y la Mesa de encantamientos de Nyx.
+7. **Asedio del Eclipse**: Puesto del Eclipse (mares del vacío, altura 92) → Heraldo → Amuleto → usalo en una aldea → 5 oleadas → **Tótem del Eclipse**.
 
 ## Contenido
 | | |
@@ -37,6 +47,6 @@ Recetas en `src/main/resources/data/nyxheim/recipe`.
 
 ## Desarrollo
 - `python3 gen_assets.py` regenera texturas, modelos, idiomas, recetas, tags, biomas y la dimensión (necesita Pillow y haber compilado una vez).
-- `./gradlew build` → `build/libs/nyxheim-0.7.0.jar`. `./gradlew runClient` / `runServer` para probar.
+- `./gradlew build` → `build/libs/nyxheim-0.7.1.jar`. `./gradlew runClient` / `runServer` para probar.
 - En desarrollo existen `/nyxuse`, `/nyxfind` (estructuras cercanas) y `/nyxprobe` (bloques de la zona); ninguno existe fuera del entorno de desarrollo.
 - Las texturas de los mobs se generan al iniciar el juego recoloreando las de vanilla: el mod no incluye archivos de Mojang.

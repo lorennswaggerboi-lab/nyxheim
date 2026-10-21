@@ -133,7 +133,7 @@ h1,h2,h3,h4{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.15;margin
 .checks b{color:#fff;font-weight:600}
 
 /* ---------- estructuras ---------- */
-.structs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.structs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
 @media (max-width:1000px){.structs{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.structs{grid-template-columns:1fr}}
 .struct{position:relative;border-radius:var(--radius);overflow:hidden;min-height:400px;display:flex;align-items:flex-end;border:1px solid var(--line);cursor:zoom-in;isolation:isolate}
@@ -295,6 +295,20 @@ footer a:hover{color:#fff}
 .reveal.in{opacity:1;transform:none}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;background:var(--surface-2);border:1px solid var(--line-2);color:#fff;padding:12px 18px;border-radius:12px;font-size:14px;z-index:120;transition:.25s;pointer-events:none}
 .toast.show{opacity:1;transform:translate(-50%,0)}
+.journey{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+@media (max-width:900px){.journey{grid-template-columns:1fr}}
+.stage{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);border-radius:var(--radius);padding:26px 26px 22px}
+.stage-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.stage-num{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font:700 18px "Space Grotesk";background:linear-gradient(135deg,#9b5cf5,#6a2ed0);color:#fff}
+.stage-head h3{margin:0;font-size:20px}
+.stage-head .when{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.stage ul{margin:0;padding-left:18px;color:#d5cfe9;display:grid;gap:8px}
+.stage li b{color:#fff}
+.stage .icons{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.stage .icons img{width:32px;height:32px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:8px;padding:4px}
+.recipe{display:inline-grid;grid-template-columns:repeat(3,auto);gap:3px;vertical-align:middle;margin:6px 0}
+.recipe span{font-size:12px;padding:3px 7px;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:6px;color:#e8e2fa;text-align:center}
+.tip{margin-top:26px;padding:16px 20px;border-left:3px solid #9b5cf5;background:rgba(155,92,245,.08);border-radius:10px;color:#d5cfe9}
 </style>
 </head>
 <body>
@@ -304,7 +318,7 @@ footer a:hover{color:#fff}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Nyxheim, inicio">
       <img class="pixel" src="assets/favicon.png" alt="">
-      Nyxheim <small>v0.7.0</small>
+      Nyxheim <small>v0.7.1</small>
     </a>
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -312,12 +326,13 @@ footer a:hover{color:#fff}
     <nav class="nav-links" id="navLinks">
       <a href="#features">Características</a>
       <a href="#structures">Estructuras</a>
+      <a href="#journey">Guía</a>
       <a href="#villages">Aldeas</a>
       <a href="#bosses">Jefes</a>
       <a href="#arsenal">Arsenal</a>
       <a href="#install">Instalación</a>
       <a href="#faq">FAQ</a>
-      <a class="btn btn-primary btn-sm js-download" href="download/nyxheim-0.7.0.jar" download>
+      <a class="btn btn-primary btn-sm js-download" href="download/nyxheim-0.7.1.jar" download>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
         Descargar
       </a>
@@ -332,7 +347,7 @@ footer a:hover{color:#fff}
   <div class="wrap">
     <div class="hero-inner">
       <div class="badges">
-        <span class="badge"><i></i>v0.7.0 estable</span>
+        <span class="badge"><i></i>v0.7.1 estable</span>
         <span class="badge">Minecraft 26.3</span>
         <span class="badge">Fabric</span>
         <span class="badge">Windows · Linux · macOS</span>
@@ -340,14 +355,14 @@ footer a:hover{color:#fff}
       <h1><span class="grad">Nyxheim</span></h1>
       <p class="lead">Atravesá el portal hacia una dimensión de eclipse eterno: pilares colosales, islas flotantes, aldeas con misiones y criaturas nunca vistas, hasta despertar a dos jefes legendarios.</p>
       <div class="cta">
-        <a class="btn btn-primary js-download" href="download/nyxheim-0.7.0.jar" download>
+        <a class="btn btn-primary js-download" href="download/nyxheim-0.7.1.jar" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
-          Descargar Nyxheim 0.7.0
+          Descargar Nyxheim 0.7.1
         </a>
         <a class="btn btn-ghost" href="#install">Cómo instalarlo</a>
       </div>
       <div class="meta">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6"/></svg>nyxheim-0.7.0.jar · 700 KB</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6"/></svg>nyxheim-0.7.1.jar · 700 KB</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg>Licencia MIT</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7L10 17l-5-5"/></svg>Requiere Fabric API</span>
       </div>
@@ -361,7 +376,7 @@ footer a:hover{color:#fff}
   <div class="wrap">
     <div class="stats-grid reveal">
       <div class="stat"><b>5</b><span>Biomas propios</span></div>
-      <div class="stat"><b>5</b><span>Estructuras, con aldeas</span></div>
+      <div class="stat"><b>6</b><span>Estructuras, con aldeas</span></div>
       <div class="stat"><b>2</b><span>Jefes con fases</span></div>
       <div class="stat"><b>15</b><span>Criaturas con modelo propio</span></div>
       <div class="stat"><b>50+</b><span>Bloques e ítems</span></div>
@@ -420,12 +435,13 @@ footer a:hover{color:#fff}
     <div class="section-head reveal">
       <span class="eyebrow">Estructuras</span>
       <h2>Explorá, saqueá y <span class="grad">sobreviví</span></h2>
-      <p>Aldeas, ciudadelas, torres, mazmorras y santuarios, con cofres de botín propios, spawners y decoración pensada para cada lugar.</p>
+      <p>Aldeas, ciudadelas, torres, mazmorras, santuarios y puestos de cultistas, con cofres de botín propios, spawners y decoración pensada para cada lugar.</p>
     </div>
     <div class="structs">
       <a class="struct reveal" data-lb="assets/shots/citadel.jpg" data-cap="Ciudadela del Vacío"><img src="assets/shots/citadel-sm.jpg" alt="Ciudadela del Vacío" loading="lazy"><div class="struct-body"><span class="kicker">Superficie · Grande</span><h3>Ciudadela del Vacío</h3><p>Murallas, cuatro torres y una torre del homenaje con sala del trono. En el patio está el Altar del Eclipse donde se despierta al Coloso.</p></div></a>
       <a class="struct reveal" data-lb="assets/shots/spire.jpg" data-cap="Torre del Eclipse"><img src="assets/shots/spire.jpg" alt="Torre del Eclipse" loading="lazy"><div class="struct-body"><span class="kicker">Superficie · 46 bloques</span><h3>Torre del Eclipse</h3><p>Escalera de caracol, seis pisos con bibliotecas y laboratorios, y un observatorio con el altar donde se invoca a la Soberana.</p></div></a>
       <a class="struct reveal" data-lb="assets/shots/vault.jpg" data-cap="Bóveda Abisal — cámara del tesoro"><img src="assets/shots/vault.jpg" alt="Bóveda Abisal" loading="lazy"><div class="struct-body"><span class="kicker">Subterránea · 9 salas</span><h3>Bóveda Abisal</h3><p>Un túnel desciende hasta una red de salas: tesoro, celdas, armería, biblioteca y salas oscuras con spawners.</p></div></a>
+      <a class="struct reveal" data-lb="assets/shots/outpost.jpg" data-cap="Puesto del Eclipse"><img src="assets/shots/outpost-sm.jpg" alt="Puesto del Eclipse sobre pilotes en el mar del vacío" loading="lazy"><div class="struct-body"><span class="kicker">Mares del vacío · altura 92</span><h3>Puesto del Eclipse</h3><p>Torre de los cultistas sobre pilotes, con jaulas, tiendas y botín. A veces la custodia un Heraldo con el Amuleto del Eclipse.</p></div></a>
       <a class="struct reveal" data-lb="assets/shots/sanctum2.jpg" data-cap="Santuario Celeste"><img src="assets/shots/sanctum2.jpg" alt="Santuario Celeste sobre una isla flotante" loading="lazy"><div class="struct-body"><span class="kicker">Islas flotantes</span><h3>Santuario Celeste</h3><p>Templetes con cúpula de obsidiana rúnica en lo alto de las islas. El premio: plantillas abisales, coronas y hasta élitros.</p></div></a>
     </div>
   </div>
@@ -482,6 +498,9 @@ footer a:hover{color:#fff}
       <div class="mob reveal"><div class="dot" style="background:#c08cf4">P</div><div><h4>Polilla Lunar <span class="pill aliado">pacífico</span></h4><p>Revolotea dejando polvo brillante; suelta Polvo lunar.</p></div></div>
       <div class="mob reveal"><div class="dot" style="background:#ff4fd8">F</div><div><h4>Fauce Umbría <span class="pill hostil">hostil</span></h4><p>Una boca con seis patas que salta sobre vos; su mordida da hambre.</p></div></div>
       <div class="mob reveal"><div class="dot" style="background:#5fd8ff">A</div><div><h4>Aguijón Astral <span class="pill hostil">hostil</span></h4><p>Avispa del vacío que pica en picada y se aleja para volver a atacar.</p></div></div>
+      <div class="mob reveal"><div class="dot" style="background:#902a60">C</div><div><h4>Cultista del Eclipse <span class="pill hostil">hostil</span></h4><p>Vive en los Puestos del Eclipse; su hoz da Marchitamiento. Ataca aldeas.</p></div></div>
+      <div class="mob reveal"><div class="dot" style="background:#c85a28">H</div><div><h4>Heraldo del Eclipse <span class="pill hostil">raro</span></h4><p>Cultista de élite con estandarte. Suelta el Amuleto del Eclipse.</p></div></div>
+      <div class="mob reveal"><div class="dot" style="background:#5fd8ff">I</div><div><h4>Invocador del Vacío <span class="pill hostil">asedio</span></h4><p>Dispara en abanico e invoca Aguijones. Suelta el Tótem del Eclipse.</p></div></div>
       <div class="mob reveal"><div class="dot" style="background:#e0a020">N</div><div><h4>Nyxianos <span class="pill aliado">aldeanos</span></h4><p>Líderes con misiones, y aldeanos que se reproducen con Fruto Estelar y trabajan de granjero, encantador, herrero o alquimista.</p></div></div>
     </div>
   </div>
@@ -567,7 +586,7 @@ footer a:hover{color:#fff}
     <div class="section-head reveal">
       <span class="eyebrow">Primeros pasos</span>
       <h2>Cómo llegar a <span class="grad">Nyxheim</span></h2>
-      <p>El portal es caro a propósito: es el final del juego vanilla y el comienzo de Nyxheim.</p>
+      <p>Se arma a mitad de partida: con obsidiana, amatista, oro y unos pocos diamantes ya podés cruzar.</p>
     </div>
     <div class="portal-guide">
       <div class="reveal">
@@ -583,12 +602,96 @@ footer a:hover{color:#fff}
         <div class="legend"><span><img class="pixel" src="assets/icons/nyx_core_block.png" alt="">Núcleo de Nyx ×4</span><span><img class="pixel" src="assets/icons/runed_obsidian.png" alt="">Obsidiana rúnica ×18</span></div>
       </div>
       <ol class="steps reveal">
-        <li><b>Obsidiana rúnica</b> (×2 por receta)<small>4 obsidiana llorona en las esquinas, 4 obsidiana y un fragmento de eco en el centro.</small></li>
-        <li><b>Núcleo de Nyx</b><small>4 lingotes de netherita, 4 bloques de diamante y un tótem de la inmortalidad en el centro.</small></li>
-        <li><b>Ojo de Nyx</b> (sin forma)<small>Estrella del Nether + aliento de dragón + corazón del mar + fragmento de eco + lingote de netherita.</small></li>
+        <li><b>Obsidiana rúnica</b> (×4 por receta)<small>4 fragmentos de amatista en las esquinas, 4 de obsidiana y una perla de Ender en el centro.</small></li>
+        <li><b>Núcleo de Nyx</b><small>4 lingotes de oro en las esquinas, 4 de obsidiana y un diamante en el centro.</small></li>
+        <li><b>Ojo de Nyx</b> (sin forma)<small>Ojo de Ender + fragmento de amatista + polvo de piedra luminosa + lapislázuli.</small></li>
         <li><b>Construí el marco</b> vertical de 6×7 y usá el Ojo de Nyx sobre él.<small>Quedate unos 4 segundos dentro del portal para viajar. Del otro lado se genera un portal de regreso.</small></li>
       </ol>
     </div>
+  </div>
+</section>
+
+<!-- ============================ JOURNEY ============================ -->
+<section class="section" id="journey">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Guía de progreso</span>
+      <h2>Qué hacer en <span class="grad">Nyxheim</span>, paso a paso</h2>
+      <p>Un recorrido recomendado desde que cruzás el portal hasta tener el mejor equipo del mod.</p>
+    </div>
+    <div class="journey">
+      <article class="stage reveal">
+        <div class="stage-head"><div class="stage-num">1</div><div><h3>Cruzá el portal</h3><span class="when">Mitad del juego vanilla</span></div></div>
+        <ul>
+          <li><b>Obsidiana rúnica ×4</b>: 4 amatista en las esquinas, 4 obsidiana y una perla de Ender en el centro.</li>
+          <li><b>Núcleo de Nyx</b>: 4 lingotes de oro en las esquinas, 4 obsidiana y un diamante en el centro.</li>
+          <li><b>Ojo de Nyx</b> (sin forma): ojo de Ender + amatista + polvo de piedra luminosa + lapislázuli.</li>
+          <li>Marco vertical de <b>6×7</b>: núcleos en las 4 esquinas, obsidiana rúnica en el resto. Usá el Ojo sobre el marco y quedate ~4 s adentro.</li>
+          <li>Del otro lado aparece un portal de vuelta, siempre en la superficie y a cielo abierto.</li>
+        </ul>
+        <div class="icons"><img class="pixel" src="assets/icons/runed_obsidian.png" alt=""><img class="pixel" src="assets/icons/nyx_core_block.png" alt=""><img class="pixel" src="assets/icons/eye_of_nyx.png" alt=""><img class="pixel" src="assets/icons/nyx_portal.png" alt=""></div>
+      </article>
+      <article class="stage reveal">
+        <div class="stage-head"><div class="stage-num">2</div><div><h3>Primeros recursos</h3><span class="when">Tus primeros minutos</span></div></div>
+        <ul>
+          <li>Talá los <b>árboles violetas</b>: los tablones de Nyx sirven como madera normal (palitos, mesa, cofres). Las hojas sueltan <b>Brotes de Nyx</b>.</li>
+          <li>Picá <b>Piedra de Nyx</b> y buscá las menas: <b>lunarita</b> (celeste) y <b>astralita</b> (rosada). Fundí la astralita en un horno.</li>
+          <li>Con 4 fragmentos de lunarita en cuadrado hacés 2 <b>Cristales luminosos</b>.</li>
+          <li>Cuidado de noche: Velos Errantes, Fauces Umbrías y Aguijones Astrales salen a cazar.</li>
+        </ul>
+        <div class="icons"><img class="pixel" src="assets/icons/nyx_planks.png" alt=""><img class="pixel" src="assets/icons/nyx_sapling.png" alt=""><img class="pixel" src="assets/icons/lunarite_shard.png" alt=""><img class="pixel" src="assets/icons/astralite_ore.png" alt=""><img class="pixel" src="assets/icons/astralite_ingot.png" alt=""><img class="pixel" src="assets/icons/glow_crystal.png" alt=""></div>
+      </article>
+      <article class="stage reveal">
+        <div class="stage-head"><div class="stage-num">3</div><div><h3>Mesa de Nyx y tu primer equipo</h3><span class="when">Desbloquea el crafteo de Nyxheim</span></div></div>
+        <ul>
+          <li>En la mesa normal: <b>lunarita · cristal luminoso · lunarita</b> / <b>astralita · mesa de crafteo · astralita</b> / <b>brote · tablones de Nyx · brote</b>.</li>
+          <li>El equipo, las armas, los hornos y las mesas de oficio de Nyxheim <b>solo se hacen en la Mesa de Nyx</b>. Las escaleras, losas, muros y demás siguen en la mesa normal.</li>
+          <li><b>Herramientas de piedra de Nyx</b>: rinden como las de hierro. Las de <b>madera de Nyx</b> hacen brillar al enemigo.</li>
+          <li><b>Horno de Nyx</b> (8 piedra de Nyx): cocina el doble de rápido. Mejoralo a <b>Alto horno</b> o <b>Ahumador de Nyx</b> (×10).</li>
+        </ul>
+        <div class="icons"><img class="pixel" src="assets/icons/nyx_crafting_table_top.png" alt=""><img class="pixel" src="assets/icons/nyx_stone_pickaxe.png" alt=""><img class="pixel" src="assets/icons/nyx_wood_sword.png" alt=""><img class="pixel" src="assets/icons/nyx_furnace_front_on.png" alt=""></div>
+      </article>
+      <article class="stage reveal">
+        <div class="stage-head"><div class="stage-num">4</div><div><h3>Encontrá una aldea Nyxiana</h3><span class="when">El corazón de tu progreso</span></div></div>
+        <ul>
+          <li>Los líderes te dan misiones: el <b>Jefe cazador</b> (cazar criaturas) y el <b>Chamán</b> (traer materiales). Cada misión da <b>Fragmentos de Sello</b> y premios.</li>
+          <li>Los aldeanos comunes <b>se reproducen</b> con <b>Fruto Estelar</b> y toman oficio si dejás cerca una mesa de oficio de Nyx: granjero, encantador (escritorio rúnico), herrero (forja) o alquimista.</li>
+          <li>Se comercia con <b>lunarita</b>. El encantador vende libros por encima del máximo, como <b>Filo X</b> o <b>Reparación II</b>.</li>
+          <li>La azada ara el Musgo Estelar: plantá las <b>Semillas estelares</b> que encontrás en los cofres de las estructuras.</li>
+        </ul>
+        <div class="icons"><img class="pixel" src="assets/icons/seal_fragment.png" alt=""><img class="pixel" src="assets/icons/star_seeds.png" alt=""><img class="pixel" src="assets/icons/star_fruit.png" alt=""><img class="pixel" src="assets/icons/nyx_farmer_table_side.png" alt=""><img class="pixel" src="assets/icons/nyx_rune_desk_side.png" alt=""><img class="pixel" src="assets/icons/nyx_forge_side.png" alt=""><img class="pixel" src="assets/icons/nyx_alchemy_table_side.png" alt=""></div>
+      </article>
+      <article class="stage reveal">
+        <div class="stage-head"><div class="stage-num">5</div><div><h3>Los jefes</h3><span class="when">Con 4 Fragmentos de Sello</span></div></div>
+        <ul>
+          <li>Llevale <b>4 Fragmentos de Sello al Anciano</b> (el de la torre): te da el <b>Sigilo de Nyx</b> y te dice dónde queda la Ciudadela más cercana.</li>
+          <li>Usá el Sigilo sobre el <b>Altar del Eclipse</b> del patio de una <b>Ciudadela</b> para despertar al <b>Coloso de Nyx</b>. Suelta el <b>Ojo del Coloso</b>, su martillo y plantillas abisales.</li>
+          <li>El Anciano convierte el Ojo en la <b>Corona del Eclipse</b>. Usala en el altar de la cima de una <b>Torre del Eclipse</b> para enfrentar a la <b>Soberana</b>.</li>
+          <li>La Soberana suelta el <b>Corazón del Eclipse</b> (para el Báculo Lunar).</li>
+        </ul>
+        <div class="icons"><img class="pixel" src="assets/icons/nyx_sigil.png" alt=""><img class="pixel" src="assets/icons/eclipse_altar.png" alt=""><img class="pixel" src="assets/icons/colossus_eye.png" alt=""><img class="pixel" src="assets/icons/eclipse_crown.png" alt=""><img class="pixel" src="assets/icons/eclipse_heart.png" alt=""></div>
+      </article>
+      <article class="stage reveal">
+        <div class="stage-head"><div class="stage-num">6</div><div><h3>Equipo de final</h3><span class="when">Voidita, abisal y encantamientos</span></div></div>
+        <ul>
+          <li>La <b>voidita</b> (mena violeta, en lo profundo) da equipo nivel netherita, con bonos por llevar el set completo.</li>
+          <li>Mejorá tu armadura de netherita a <b>Abisal</b> en la mesa de herrería con una <b>Plantilla abisal</b> y un bloque de voidita.</li>
+          <li>La <b>Mesa de encantamientos de Nyx</b> (bloques de lunarita, cristal luminoso, libro y obsidiana rúnica) encanta por encima del máximo y a veces suma encantamientos propios como <b>Sanguijuela Lunar</b>.</li>
+        </ul>
+        <div class="icons"><img class="pixel" src="assets/icons/voidite_ore.png" alt=""><img class="pixel" src="assets/icons/voidite_ingot.png" alt=""><img class="pixel" src="assets/icons/voidite_sword.png" alt=""><img class="pixel" src="assets/icons/abyssal_upgrade_template.png" alt=""><img class="pixel" src="assets/icons/abyssal_chestplate.png" alt=""><img class="pixel" src="assets/icons/nyx_enchanting_table_top.png" alt=""></div>
+      </article>
+      <article class="stage reveal" style="grid-column:1/-1">
+        <div class="stage-head"><div class="stage-num">7</div><div><h3>El Asedio del Eclipse</h3><span class="when">El desafío más difícil</span></div></div>
+        <ul>
+          <li>En los grandes mares del vacío, a la altura 92, hay <b>Puestos del Eclipse</b>: torres de cultistas sobre pilotes. Subí por la escalera desde el agua.</li>
+          <li>A veces los custodia un <b>Heraldo</b> (túnica rojiza, estandarte y llamas). Al vencerlo suelta el <b>Amuleto del Eclipse</b>.</li>
+          <li>Usá el amuleto <b>dentro de una aldea</b>: comienzan <b>5 oleadas</b> de invasores que caen del cielo. Los aldeanos se esconden en sus casas; vos tenés que defender la aldea.</li>
+          <li>Si ganás recibís un <b>Tótem del Eclipse</b>, lunarita y experiencia. Cada <b>Invocador del Vacío</b> también suelta uno. El tótem te salva de la muerte y además da <b>Resistencia I, Velocidad II y 8 corazones extra</b>.</li>
+        </ul>
+        <div class="icons"><img class="pixel" src="assets/icons/eclipse_amulet.png" alt=""><img class="pixel" src="assets/icons/eclipse_totem.png" alt=""></div>
+      </article>
+    </div>
+    <div class="tip reveal">💡 <b>Consejo:</b> las estructuras, las aldeas grandes y los Puestos del Eclipse solo aparecen en zonas de Nyxheim que todavía no exploraste. Si actualizaste el mod en un mundo viejo, alejate de lo ya visitado.</div>
   </div>
 </section>
 
@@ -625,7 +728,7 @@ footer a:hover{color:#fff}
               <div class="code" data-copy>java -jar fabric-installer.jar client -mcversion 26.3<button class="copy" type="button">Copiar</button></div></li>
             <li><b>Descargá Fabric API</b> para 26.3 desde <a href="https://modrinth.com/mod/fabric-api" target="_blank" rel="noopener" style="color:var(--cyan)">Modrinth</a>.</li>
             <li><b>Descargá Nyxheim</b> y copialo a la carpeta de mods:
-              <div class="code" data-copy>mkdir -p ~/.minecraft/mods && cp ~/Descargas/nyxheim-0.7.0.jar ~/.minecraft/mods/<button class="copy" type="button">Copiar</button></div>
+              <div class="code" data-copy>mkdir -p ~/.minecraft/mods && cp ~/Descargas/nyxheim-0.7.1.jar ~/.minecraft/mods/<button class="copy" type="button">Copiar</button></div>
               <small>En macOS la carpeta es <code>~/Library/Application Support/minecraft/mods</code>.</small></li>
             <li><b>Abrí el launcher</b> y jugá con el perfil <b>fabric-loader-26.3</b>.</li>
           </ol>
@@ -635,7 +738,7 @@ footer a:hover{color:#fff}
           <ol class="steps">
             <li><b>Creá una instancia</b> de Minecraft <b>26.3</b> y elegí <b>Fabric</b> como mod loader.</li>
             <li><b>Agregá Fabric API</b>: <i>Editar instancia → Mods → Descargar mods</i> y buscá “Fabric API”.</li>
-            <li><b>Agregá Nyxheim</b>: <i>Mods → Añadir archivo</i> y elegí <code>nyxheim-0.7.0.jar</code> (o arrastralo a la ventana).</li>
+            <li><b>Agregá Nyxheim</b>: <i>Mods → Añadir archivo</i> y elegí <code>nyxheim-0.7.1.jar</code> (o arrastralo a la ventana).</li>
             <li><b>Iniciá la instancia</b>. Asigná al menos 4 GB de RAM para una experiencia fluida.</li>
           </ol>
         </div>
@@ -654,7 +757,7 @@ footer a:hover{color:#fff}
           <tr><td>Lado</td><td>Cliente y servidor</td></tr>
         </table>
         <div class="dl">
-          <a class="btn btn-primary js-download" href="download/nyxheim-0.7.0.jar" download>
+          <a class="btn btn-primary js-download" href="download/nyxheim-0.7.1.jar" download>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
             Descargar .jar (700 KB)
           </a>
@@ -674,9 +777,11 @@ footer a:hover{color:#fff}
     <div class="section-head reveal">
       <span class="eyebrow">Galería</span>
       <h2>Capturas <span class="grad">del juego</span></h2>
-      <p>Todas tomadas en Minecraft 26.3 con Nyxheim 0.7.0, sin shaders ni paquetes de texturas.</p>
+      <p>Todas tomadas en Minecraft 26.3 con Nyxheim 0.7.1, sin shaders ni paquetes de texturas.</p>
     </div>
     <div class="gallery" id="gallery-grid">
+      <figure data-lb="assets/shots/outpost.jpg"><img src="assets/shots/outpost-sm.jpg" alt="Puesto del Eclipse" loading="lazy"><figcaption>Un Puesto del Eclipse en medio del mar del vacío</figcaption></figure>
+      <figure data-lb="assets/shots/raiders.jpg"><img src="assets/shots/raiders-sm.jpg" alt="Cultista, Heraldo e Invocador" loading="lazy"><figcaption>Cultista, Heraldo e Invocador del Vacío</figcaption></figure>
       <figure data-lb="assets/shots/citadel.jpg"><img src="assets/shots/citadel-sm.jpg" alt="Ciudadela del Vacío" loading="lazy"><figcaption>Ciudadela del Vacío entre los pilares</figcaption></figure>
       <figure data-lb="assets/shots/spire.jpg"><img src="assets/shots/spire.jpg" alt="Torre del Eclipse" loading="lazy"><figcaption>Torre del Eclipse</figcaption></figure>
       <figure data-lb="assets/shots/altar.jpg"><img src="assets/shots/altar-sm.jpg" alt="Altar del Eclipse" loading="lazy"><figcaption>El Altar del Eclipse en el patio de la Ciudadela</figcaption></figure>
@@ -708,6 +813,9 @@ footer a:hover{color:#fff}
       <details class="reveal"><summary>¿Se puede usar en un servidor multijugador?</summary><p>Sí. Instalá el .jar y Fabric API en el servidor y en el cliente de cada jugador.</p></details>
       <details class="reveal"><summary>¿Cómo encuentro las estructuras?</summary><p>Explorando Nyxheim. Aldeas, ciudadelas, torres y bóvedas aparecen aproximadamente una por cada región de 240×240 bloques; los santuarios celestes, en lo alto de algunas islas flotantes. El Anciano de cada aldea te indica dónde queda la Ciudadela o la Torre más cercana.</p></details>
       <details class="reveal"><summary>¿Cómo invoco a los jefes?</summary><p>Hacé las misiones de una aldea Nyxiana: el Anciano canjea 4 Fragmentos de Sello por el <b>Sigilo de Nyx</b> (Coloso) y el Ojo del Coloso por la <b>Corona del Eclipse</b> (Soberana). Usalos sobre el Altar del Eclipse de una Ciudadela o de una Torre.</p></details>
+      <details class="reveal"><summary>Acabo de llegar a Nyxheim, ¿qué hago?</summary><p>Seguí la <a href="#journey">guía de progreso</a>: juntá madera y piedra de Nyx, buscá lunarita y astralita, armá la Mesa de Nyx y encontrá una aldea Nyxiana. Sus misiones te llevan a los jefes.</p></details>
+      <details class="reveal"><summary>¿Cómo consigo el Tótem del Eclipse?</summary><p>Venciendo el Asedio del Eclipse (usá el Amuleto del Eclipse dentro de una aldea) o matando a un Invocador del Vacío durante el asedio. El amuleto lo suelta el Heraldo de los Puestos del Eclipse.</p></details>
+      <details class="reveal"><summary>¿Por qué no puedo craftear la espada o el pico de Nyx?</summary><p>El equipo de Nyxheim solo se fabrica en la Mesa de Nyx. Su receta está en el paso 3 de la guía.</p></details>
       <details class="reveal"><summary>¿Incluye texturas de Mojang?</summary><p>No. Todas las texturas y modelos del mod son propios, incluidas las criaturas y el cielo.</p></details>
     </div>
   </div>
@@ -721,7 +829,9 @@ footer a:hover{color:#fff}
       <h2>Historial de <span class="grad">versiones</span></h2>
     </div>
     <div class="timeline">
-      <div class="release reveal"><div><div class="v">0.7.0</div><div class="d">Octubre 2026</div><span class="latest">Última</span></div>
+      <div class="release reveal"><div><div class="v">0.7.1</div><div class="d">Octubre 2026</div><span class="latest">Última</span></div>
+        <ul><li>Las casas de las aldeas tienen puertas de madera de Nyx.</li><li>Los Nyxianos huyen de los monstruos y, durante un asedio, corren a su casa y cierran la puerta.</li><li>Los huertos ya no se superponen con las casas.</li><li>Portal mucho más barato: obsidiana, amatista, oro y unos pocos diamantes.</li></ul></div>
+      <div class="release reveal"><div><div class="v">0.7.0</div><div class="d">Octubre 2026</div></div>
         <ul><li>Puesto del Eclipse: torre de los cultistas sobre pilotes en medio de los mares del vacío, a la altura 92.</li><li>Cultistas del Eclipse y, a veces, un Heraldo que suelta el Amuleto del Eclipse.</li><li>Asedio del Eclipse: usá el amuleto en una aldea y resistí 5 oleadas que caen del cielo.</li><li>Invocador del Vacío: dispara en abanico e invoca Aguijones; suelta el Tótem del Eclipse.</li><li>Tótem del Eclipse: además de salvarte da Resistencia, Velocidad II y 8 corazones extra.</li></ul></div>
       <div class="release reveal"><div><div class="v">0.6.0</div><div class="d">Octubre 2026</div></div>
         <ul><li>Criaturas nuevas que aparecen solas: Ciervo Estelar y Polilla Lunar (pacíficas), Fauce Umbría y Aguijón Astral (hostiles).</li><li>Aldeas más grandes (unos 20 Nyxianos): líderes con misiones y aldeanos comunes que se reproducen con Fruto Estelar.</li><li>Oficios con mesas de Nyx: granjero, encantador, herrero y alquimista, con comercio en lunarita.</li><li>Libros por encima del máximo (Filo X, Reparación II...) y 4 encantamientos propios.</li><li>Mesa de encantamientos de Nyx, que encanta por encima del nivel máximo.</li><li>Cultivo de Fruto Estelar sobre tierra arada de Nyx (la azada ara el Musgo Estelar); semillas en los cofres de las estructuras.</li><li>Carne estelar del Ciervo Estelar.</li></ul></div>
@@ -744,9 +854,9 @@ footer a:hover{color:#fff}
     <h2 style="margin-top:14px">¿Listo para cruzar el portal?</h2>
     <p>Descargá Nyxheim gratis y empezá a juntar los materiales del portal.</p>
     <div class="cta">
-      <a class="btn btn-primary js-download" href="download/nyxheim-0.7.0.jar" download>
+      <a class="btn btn-primary js-download" href="download/nyxheim-0.7.1.jar" download>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
-        Descargar Nyxheim 0.7.0
+        Descargar Nyxheim 0.7.1
       </a>
       <a class="btn btn-ghost" href="#install">Guía de instalación</a>
     </div>
@@ -785,8 +895,8 @@ footer a:hover{color:#fff}
 const CONFIG = {
   repo: "https://github.com/lorennswaggerboi-lab/nyxheim",
   // Si publicás el .jar en GitHub Releases, podés usar:
-  // download: "https://github.com/lorennswaggerboi-lab/nyxheim/releases/latest/download/nyxheim-0.7.0.jar"
-  download: "download/nyxheim-0.7.0.jar"
+  // download: "https://github.com/lorennswaggerboi-lab/nyxheim/releases/latest/download/nyxheim-0.7.1.jar"
+  download: "download/nyxheim-0.7.1.jar"
 };
 
 document.querySelectorAll(".js-download").forEach(a => a.href = CONFIG.download);
@@ -836,7 +946,7 @@ document.querySelectorAll("[data-copy]").forEach(box => {
 });
 
 // aviso al descargar
-document.querySelectorAll(".js-download").forEach(a => a.addEventListener("click", () => showToast("Descargando nyxheim-0.7.0.jar…")));
+document.querySelectorAll(".js-download").forEach(a => a.addEventListener("click", () => showToast("Descargando nyxheim-0.7.1.jar…")));
 
 // visor de imágenes
 const lb = document.getElementById("lightbox"), lbImg = lb.querySelector("img"), lbCap = lb.querySelector("p");
